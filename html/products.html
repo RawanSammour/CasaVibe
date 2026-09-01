@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shop | CasaVibe</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<header class="header">
+
+    <a href="index.html" class="logo">
+        Casa<span>Vibe</span>
+    </a>
+
+    <nav class="navbar">
+
+        <a href="index.html">Home</a>
+
+        <a href="products.html" class="active">
+            Shop
+        </a>
+
+        <a href="index.html#collections">
+            Collections
+        </a>
+
+        <a href="index.html#about">
+            About
+        </a>
+
+    </nav>
+
+    <div class="header-actions">
+
+        <button class="icon-btn" onclick="openSearch()">
+            ⌕
+        </button>
+
+        <a href="wishlist.html" class="icon-btn">
+            ♡
+        </a>
+
+        <a href="cart.html" class="cart-btn">
+            🛒 <span id="cart-count">0</span>
+        </a>
+
+    </div>
+
+</header>
+
+
+<main>
+
+    <!-- ================= SHOP HERO ================= -->
+
+    <section class="shop-hero">
+
+        <p class="small-title">
+            CASAVIBE COLLECTION
+        </p>
+
+        <h1>
+            Find pieces<br>
+            <i>you'll love.</i>
+        </h1>
+
+        <p>
+            Explore our carefully selected collection of furniture
+            designed for beautiful everyday living.
+        </p>
+
+    </section>
+
+
+    <!-- ================= FILTERS ================= -->
+
+    <section class="shop-section">
+
+        <div class="filter-bar">
+
+            <button class="filter-btn active" data-category="All">
+                All
+            </button>
+
+            <button class="filter-btn" data-category="Living Room">
+                Living Room
+            </button>
+
+            <button class="filter-btn" data-category="Bedroom">
+                Bedroom
+            </button>
+
+            <button class="filter-btn" data-category="Dining">
+                Dining
+            </button>
+
+            <button class="filter-btn" data-category="Office">
+                Office
+            </button>
+
+            <button class="filter-btn" data-category="Decor">
+                Decor
+            </button>
+
+        </div>
+
+
+        <!-- ================= PRODUCTS ================= -->
+
+        <div class="shop-grid">
+
+
+            <!-- PRODUCT 1 -->
+
+            <article class="shop-product" data-category="Living Room">
+
+                <div class="shop-product-image">
+
+                    <span class="badge">
+                        NEW
+                    </span>
+
+                    <button class="heart-btn">
+                        ♡
+                    </button>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=85"
+                        alt="Cloud Beige Sofa"
+                    >
+
+                </div>
+
+                <div class="shop-product-info">
+
+                    <span>
+                        Living Room
+                    </span>
+
+                    <h2>
+                        Cloud Beige Sofa
+                    </h2>
+
+                    <div>
+
+                        <strong>
+                            ₪1,899
+                        </strong>
+
+                        <button
+                            class="add-btn"
+                            onclick="addToCart('Cloud Beige Sofa',1899,'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=85')">
+
+                            Add to cart +
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 2 -->
+
+            <article class="shop-product" data-category="Bedroom">
+
+                <div class="shop-product-image">
+
+                    <button class="heart-btn">
+                        ♡
+                    </button>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=85"
+                        alt="Nordic Bed Frame"
+                    >
+
+                </div>
+
+                <div class="shop-product-info">
+
+                    <span>
+                        Bedroom
+                    </span>
+
+                    <h2>
+                        Nordic Bed Frame
+                    </h2>
+
+                    <div>
+
+                        <strong>
+                            ₪1,450
+                        </strong>
+
+                        <button
+                            class="add-btn"
+                            onclick="addToCart('Nordic Bed Frame',1450,'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=85')">
+
+                            Add to cart +
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 3 -->
+
+            <article class="shop-product" data-category="Decor">
+
+                <div class="shop-product-image">
+
+                    <span class="badge sale">
+                        SALE
+                    </span>
+
+                    <button class="heart-btn">
+                        ♡
+                    </button>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1532372320572-cda25653a26d?auto=format&fit=crop&w=900&q=85"
+                        alt="Modern Lounge Chair"
+                    >
+
+                </div>
+
+                <div class="shop-product-info">
+
+                    <span>
+                        Decor
+                    </span>
+
+                    <h2>
+                        Modern Lounge Chair
+                    </h2>
+
+                    <div>
+
+                        <strong>
+                            ₪499
+                        </strong>
+
+                        <button
+                            class="add-btn"
+                            onclick="addToCart('Modern Lounge Chair',499,'https://images.unsplash.com/photo-1532372320572-cda25653a26d?auto=format&fit=crop&w=900&q=85')">
+
+                            Add to cart +
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 4 -->
+
+            <article class="shop-product" data-category="Dining">
+
+                <div class="shop-product-image">
+
+                    <button class="heart-btn">
+                        ♡
+                    </button>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?auto=format&fit=crop&w=900&q=85"
+                        alt="Oak Dining Table"
+                    >
+
+                </div>
+
+                <div class="shop-product-info">
+
+                    <span>
+                        Dining
+                    </span>
+
+                    <h2>
+                        Oak Dining Table
+                    </h2>
+
+                    <div>
+
+                        <strong>
+                            ₪1,250
+                        </strong>
+
+                        <button
+                            class="add-btn"
+                            onclick="addToCart('Oak Dining Table',1250,'https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?auto=format&fit=crop&w=900&q=85')">
+
+                            Add to cart +
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 5 -->
+
+            <article class="shop-product" data-category="Living Room">
+
+                <div class="shop-product-image">
+
+                    <button class="heart-btn">
+                        ♡
+                    </button>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format&fit=crop&w=900&q=85"
+                        alt="Soft Linen Armchair"
+                    >
+
+                </div>
+
+                <div class="shop-product-info">
+
+                    <span>
+                        Living Room
+                    </span>
+
+                    <h2>
+                        Soft Linen Armchair
+                    </h2>
+
+                    <div>
+
+                        <strong>
+                            ₪680
+                        </strong>
+
+                        <button
+                            class="add-btn"
+                            onclick="addToCart('Soft Linen Armchair',680,'https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format&fit=crop&w=900&q=85')">
+
+                            Add to cart +
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 6 -->
+
+            <article class="shop-product" data-category="Living Room">
+
+                <div class="shop-product-image">
+
+                    <button class="heart-btn">
+                        ♡
+                    </button>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=900&q=85"
+                        alt="Modern Lounge Set"
+                    >
+
+                </div>
+
+                <div class="shop-product-info">
+
+                    <span>
+                        Living Room
+                    </span>
+
+                    <h2>
+                        Modern Lounge Set
+                    </h2>
+
+                    <div>
+
+                        <strong>
+                            ₪2,450
+                        </strong>
+
+                        <button
+                            class="add-btn"
+                            onclick="addToCart('Modern Lounge Set',2450,'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=900&q=85')">
+
+                            Add to cart +
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 7 -->
+
+            <article class="shop-product" data-category="Decor">
+
+                <div class="shop-product-image">
+
+                    <button class="heart-btn">
+                        ♡
+                    </button>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1549497538-303791108f95?auto=format&fit=crop&w=900&q=85"
+                        alt="Classic Accent Chair"
+                    >
+
+                </div>
+
+                <div class="shop-product-info">
+
+                    <span>
+                        Decor
+                    </span>
+
+                    <h2>
+                        Classic Accent Chair
+                    </h2>
+
+                    <div>
+
+                        <strong>
+                            ₪540
+                        </strong>
+
+                        <button
+                            class="add-btn"
+                            onclick="addToCart('Classic Accent Chair',540,'https://images.unsplash.com/photo-1549497538-303791108f95?auto=format&fit=crop&w=900&q=85')">
+
+                            Add to cart +
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 8 -->
+
+            <article class="shop-product" data-category="Living Room">
+
+                <div class="shop-product-image">
+
+                    <span class="badge">
+                        NEW
+                    </span>
+
+                    <button class="heart-btn">
+                        ♡
+                    </button>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=900&q=85"
+                        alt="Ivory Modular Sofa"
+                    >
+
+                </div>
+
+                <div class="shop-product-info">
+
+                    <span>
+                        Living Room
+                    </span>
+
+                    <h2>
+                        Ivory Modular Sofa
+                    </h2>
+
+                    <div>
+
+                        <strong>
+                            ₪2,150
+                        </strong>
+
+                        <button
+                            class="add-btn"
+                            onclick="addToCart('Ivory Modular Sofa',2150,'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=900&q=85')">
+
+                            Add to cart +
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 9 -->
+
+            <article class="shop-product" data-category="Living Room">
+
+                <div class="shop-product-image">
+
+                    <span class="badge">
+                        NEW
+                    </span>
+
+                    <button class="heart-btn">
+                        ♡
+                    </button>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1550226891-ef816aed4a98?auto=format&fit=crop&w=900&q=85"
+                        alt="Cream Boucle Sofa"
+                    >
+
+                </div>
+
+                <div class="shop-product-info">
+
+                    <span>
+                        Living Room
+                    </span>
+
+                    <h2>
+                        Cream Boucle Sofa
+                    </h2>
+
+                    <div>
+
+                        <strong>
+                            ₪2,199
+                        </strong>
+
+                        <button
+                            class="add-btn"
+                            onclick="addToCart('Cream Boucle Sofa',2199,'https://images.unsplash.com/photo-1550226891-ef816aed4a98?auto=format&fit=crop&w=900&q=85')">
+
+                            Add to cart +
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 10 -->
+
+            <article class="shop-product" data-category="Dining">
+
+                <div class="shop-product-image">
+
+                    <button class="heart-btn">
+                        ♡
+                    </button>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=900&q=85"
+                        alt="Wooden Dining Chairs"
+                    >
+
+                </div>
+
+                <div class="shop-product-info">
+
+                    <span>
+                        Dining
+                    </span>
+
+                    <h2>
+                        Wooden Dining Chairs
+                    </h2>
+
+                    <div>
+
+                        <strong>
+                            ₪760
+                        </strong>
+
+                        <button
+                            class="add-btn"
+                            onclick="addToCart('Wooden Dining Chairs',760,'https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=900&q=85')">
+
+                            Add to cart +
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 11 -->
+
+            <article class="shop-product" data-category="Office">
+
+                <div class="shop-product-image">
+
+                    <span class="badge sale">
+                        SALE
+                    </span>
+
+                    <button class="heart-btn">
+                        ♡
+                    </button>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=900&q=85"
+                        alt="Minimal Work Desk"
+                    >
+
+                </div>
+
+                <div class="shop-product-info">
+
+                    <span>
+                        Office
+                    </span>
+
+                    <h2>
+                        Minimal Work Desk
+                    </h2>
+
+                    <div>
+
+                        <strong>
+                            ₪890
+                        </strong>
+
+                        <button
+                            class="add-btn"
+                            onclick="addToCart('Minimal Work Desk',890,'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=900&q=85')">
+
+                            Add to cart +
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 12 -->
+
+            <article class="shop-product" data-category="Bedroom">
+
+                <div class="shop-product-image">
+
+                    <button class="heart-btn">
+                        ♡
+                    </button>
+
+                    <img
+    src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=85"
+    alt="Soft Linen Bed"
+>
+
+                </div>
+
+                <div class="shop-product-info">
+
+                    <span>
+                        Bedroom
+                    </span>
+
+                    <h2>
+                        Soft Linen Bed
+                    </h2>
+
+                    <div>
+
+                        <strong>
+                            ₪1,780
+                        </strong>
+
+                        <button
+                            class="add-btn"
+                            onclick="addToCart('Soft Linen Bed',1780,'https://images.unsplash.com/photo-1617325710236-4a36c1a5c3a4?auto=format&fit=crop&w=900&q=85')">
+
+                            Add to cart +
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 13 -->
+
+            <article class="shop-product" data-category="Living Room">
+
+                <div class="shop-product-image">
+
+                    <button class="heart-btn">
+                        ♡
+                    </button>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1551298370-9d3d53740c72?auto=format&fit=crop&w=900&q=85"
+                        alt="Round Coffee Table"
+                    >
+
+                </div>
+
+                <div class="shop-product-info">
+
+                    <span>
+                        Living Room
+                    </span>
+
+                    <h2>
+                        Round Coffee Table
+                    </h2>
+
+                    <div>
+
+                        <strong>
+                            ₪620
+                        </strong>
+
+                        <button
+                            class="add-btn"
+                            onclick="addToCart('Round Coffee Table',620,'https://images.unsplash.com/photo-1551298370-9d3d53740c72?auto=format&fit=crop&w=900&q=85')">
+
+                            Add to cart +
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 14 -->
+
+            <article class="shop-product" data-category="Office">
+
+                <div class="shop-product-image">
+
+                    <span class="badge">
+                        NEW
+                    </span>
+
+                    <button class="heart-btn">
+                        ♡
+                    </button>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1594620302200-9a762244a156?auto=format&fit=crop&w=900&q=85"
+                        alt="Oak Bookshelf"
+                    >
+
+                </div>
+
+                <div class="shop-product-info">
+
+                    <span>
+                        Office
+                    </span>
+
+                    <h2>
+                        Oak Bookshelf
+                    </h2>
+
+                    <div>
+
+                        <strong>
+                            ₪980
+                        </strong>
+
+                        <button
+                            class="add-btn"
+                            onclick="addToCart('Oak Bookshelf',980,'https://images.unsplash.com/photo-1594620302200-9a762244a156?auto=format&fit=crop&w=900&q=85')">
+
+                            Add to cart +
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 15 -->
+
+            <article class="shop-product" data-category="Decor">
+
+                <div class="shop-product-image">
+
+                    <button class="heart-btn">
+                        ♡
+                    </button>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=85"
+                        alt="Modern Side Table"
+                    >
+
+                </div>
+
+                <div class="shop-product-info">
+
+                    <span>
+                        Decor
+                    </span>
+
+                    <h2>
+                        Modern Side Table
+                    </h2>
+
+                    <div>
+
+                        <strong>
+                            ₪390
+                        </strong>
+
+                        <button
+                            class="add-btn"
+                            onclick="addToCart('Modern Side Table',390,'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=85')">
+
+                            Add to cart +
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 16 -->
+
+            <article class="shop-product" data-category="Living Room">
+
+                <div class="shop-product-image">
+
+                    <span class="badge sale">
+                        SALE
+                    </span>
+
+                    <button class="heart-btn">
+                        ♡
+                    </button>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=900&q=85"
+                        alt="Luxury Living Set"
+                    >
+
+                </div>
+
+                <div class="shop-product-info">
+
+                    <span>
+                        Living Room
+                    </span>
+
+                    <h2>
+                        Luxury Living Set
+                    </h2>
+
+                    <div>
+
+                        <strong>
+                            ₪2,890
+                        </strong>
+
+                        <button
+                            class="add-btn"
+                            onclick="addToCart('Luxury Living Set',2890,'https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=900&q=85')">
+
+                            Add to cart +
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+    <div>
+
+        <a href="index.html" class="logo">
+            Casa<span>Vibe</span>
+        </a>
+
+        <p>
+            Furniture for beautiful everyday living.
+        </p>
+
+    </div>
+
+    <div class="footer-links">
+
+        <a href="products.html">
+            Shop
+        </a>
+
+        <a href="index.html#collections">
+            Collections
+        </a>
+
+        <a href="index.html#about">
+            About
+        </a>
+
+        <a href="cart.html">
+            Cart
+        </a>
+
+    </div>
+
+    <p class="copyright">
+        © 2026 CasaVibe. All rights reserved.
+    </p>
+
+</footer>
+
+
+<script src="../js/script.js"></script>
+<script>
+
+const shopProducts = document.querySelectorAll(".shop-product");
+
+shopProducts.forEach(function(product, index) {
+
+    product.style.cursor = "pointer";
+
+    product.addEventListener("click", function(event) {
+
+        // لا تفتح صفحة التفاصيل إذا ضغطنا على زر السلة أو القلب
+        if (
+            event.target.closest(".add-btn") ||
+            event.target.closest(".heart-btn")
+        ) {
+            return;
+        }
+
+        // المنتج الأول = 1، الثاني = 2 ... السادس عشر = 16
+        const productNumber = index + 1;
+
+        window.location.href =
+            "pd.html?product=" + productNumber;
+
+    });
+
+});
+
+</script>
+</body>
+</html>

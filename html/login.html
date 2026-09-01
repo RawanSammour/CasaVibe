@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Welcome | CasaVibe</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            background: #eee9e2;
+            min-height: 100vh;
+            color: #29251f;
+        }
+
+
+        .login-wrapper {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 35px;
+        }
+
+
+        .login-card {
+            width: 1100px;
+            max-width: 100%;
+            min-height: 680px;
+            background: #fffdf9;
+            border-radius: 28px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1.05fr .95fr;
+            box-shadow: 0 30px 80px rgba(50, 42, 32, .16);
+        }
+
+
+        /* ================= IMAGE ================= */
+
+        .login-visual {
+            position: relative;
+            min-height: 680px;
+            overflow: hidden;
+        }
+
+
+        .login-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1s ease;
+        }
+
+
+        .login-card:hover .login-visual img {
+            transform: scale(1.04);
+        }
+
+
+        .visual-overlay {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(25, 21, 17, .72),
+                    rgba(25, 21, 17, .08) 65%
+                );
+        }
+
+
+        .visual-content {
+            position: absolute;
+            left: 48px;
+            right: 48px;
+            bottom: 45px;
+            color: white;
+        }
+
+
+        .visual-label {
+            font-size: 11px;
+            letter-spacing: 3px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            opacity: .85;
+        }
+
+
+        .visual-content h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 48px;
+            line-height: 1.08;
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+
+
+        .visual-content h2 i {
+            font-weight: 400;
+        }
+
+
+        .visual-content p {
+            font-size: 14px;
+            line-height: 1.7;
+            max-width: 370px;
+            opacity: .82;
+        }
+
+
+        /* ================= FORM ================= */
+
+        .login-form {
+            padding: 48px 62px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+
+        .brand {
+            font-family: "Playfair Display", serif;
+            font-size: 29px;
+            text-decoration: none;
+            color: #29251f;
+            font-weight: 600;
+            margin-bottom: 70px;
+        }
+
+
+        .brand span {
+            font-style: italic;
+            font-weight: 400;
+        }
+
+
+        .welcome {
+            margin-bottom: 35px;
+        }
+
+
+        .welcome-label {
+            color: #a4774f;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 13px;
+        }
+
+
+        .welcome h1 {
+            font-family: "Playfair Display", serif;
+            font-size: 43px;
+            line-height: 1.08;
+            font-weight: 500;
+            color: #29251f;
+        }
+
+
+        .welcome h1 span {
+            font-style: italic;
+        }
+
+
+        .login-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+
+        .login-form label {
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+
+
+        .login-form input {
+            width: 100%;
+            height: 55px;
+            border: 1px solid #ded7ce;
+            border-radius: 12px;
+            background: #faf8f4;
+            padding: 0 17px;
+            font-family: "DM Sans", sans-serif;
+            font-size: 14px;
+            color: #29251f;
+            outline: none;
+            transition: .25s;
+        }
+
+
+        .login-form input:focus {
+            border-color: #9c7755;
+            background: white;
+            box-shadow: 0 0 0 4px rgba(156,119,85,.08);
+        }
+
+
+        .login-form input::placeholder {
+            color: #aaa39a;
+        }
+
+
+        .password-row {
+            position: relative;
+        }
+
+
+        .password-row input {
+            padding-right: 55px;
+        }
+
+
+        .show-password {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: none;
+            background: none;
+            cursor: pointer;
+            color: #8c857c;
+            font-size: 13px;
+        }
+
+
+        .options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 8px 0 22px;
+            font-size: 12px;
+        }
+
+
+        .remember {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            color: #777067;
+        }
+
+
+        .remember input {
+            width: 15px;
+            height: 15px;
+            accent-color: #8b684b;
+        }
+
+
+        .forgot {
+            color: #8b684b;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+
+        .signin-btn {
+            height: 56px;
+            border: none;
+            border-radius: 13px;
+            background: #302a24;
+            color: white;
+            font-family: "DM Sans", sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: .3s;
+            letter-spacing: .2px;
+        }
+
+
+        .signin-btn:hover {
+            background: #8b684b;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(70,50,35,.18);
+        }
+
+
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin: 27px 0;
+            color: #aaa39a;
+            font-size: 11px;
+        }
+
+
+        .divider::before,
+        .divider::after {
+            content: "";
+            height: 1px;
+            flex: 1;
+            background: #e3ddd5;
+        }
+
+
+        .signup {
+            text-align: center;
+            font-size: 13px;
+            color: #817a72;
+        }
+
+
+        .signup a {
+            color: #302a24;
+            font-weight: 700;
+            text-decoration: none;
+            margin-left: 4px;
+        }
+
+
+        .signup a:hover {
+            color: #8b684b;
+        }
+
+
+        .secure {
+            margin-top: 35px;
+            text-align: center;
+            font-size: 11px;
+            color: #aaa39a;
+        }
+
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 850px) {
+
+            .login-wrapper {
+                padding: 18px;
+            }
+
+
+            .login-card {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+
+
+            .login-visual {
+                min-height: 330px;
+            }
+
+
+            .visual-content {
+                left: 30px;
+                right: 30px;
+                bottom: 30px;
+            }
+
+
+            .visual-content h2 {
+                font-size: 34px;
+            }
+
+
+            .login-form {
+                padding: 38px 30px;
+            }
+
+
+            .brand {
+                margin-bottom: 45px;
+            }
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            .login-wrapper {
+                padding: 0;
+            }
+
+
+            .login-card {
+                border-radius: 0;
+                min-height: 100vh;
+            }
+
+
+            .login-visual {
+                min-height: 280px;
+            }
+
+
+            .login-form {
+                padding: 35px 24px;
+            }
+
+
+            .welcome h1 {
+                font-size: 36px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="login-wrapper">
+
+
+    <div class="login-card">
+
+
+        <!-- ================= LEFT IMAGE ================= -->
+
+        <div class="login-visual">
+
+            <img
+                src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1400&q=90"
+                alt="Elegant CasaVibe interior"
+            >
+
+
+            <div class="visual-overlay"></div>
+
+
+            <div class="visual-content">
+
+                <div class="visual-label">
+                    CASAVIBE INTERIORS
+                </div>
+
+
+                <h2>
+                    Make room for<br>
+                    <i>beautiful living.</i>
+                </h2>
+
+
+                <p>
+                    Thoughtfully selected furniture and timeless pieces
+                    made to turn your space into somewhere you love.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= RIGHT FORM ================= -->
+
+        <div class="login-form">
+
+
+            <a href="login.html" class="brand">
+                Casa<span>Vibe</span>
+            </a>
+
+
+            <div class="welcome">
+
+                <div class="welcome-label">
+                    WELCOME BACK
+                </div>
+
+
+                <h1>
+                    Sign in to<br>
+                    <span>your account.</span>
+                </h1>
+
+            </div>
+
+
+            <form id="loginForm">
+
+
+                <label for="email">
+                    Email address
+                </label>
+
+
+                <input
+                    id="email"
+                    type="email"
+                    placeholder="your@email.com"
+                    required
+                >
+
+
+
+                <label for="password">
+                    Password
+                </label>
+
+
+                <div class="password-row">
+
+                    <input
+                        id="password"
+                        type="password"
+                        placeholder="Enter your password"
+                        required
+                    >
+
+
+                    <button
+                        type="button"
+                        class="show-password"
+                        onclick="togglePassword()"
+                    >
+                        Show
+                    </button>
+
+                </div>
+
+
+
+                <div class="options">
+
+
+                    <label class="remember">
+
+                        <input
+                            type="checkbox"
+                            id="remember"
+                        >
+
+                        Remember me
+
+                    </label>
+
+
+                    <a
+                        href="#"
+                        class="forgot"
+                        onclick="return false;"
+                    >
+                        Forgot password?
+                    </a>
+
+
+                </div>
+
+
+
+                <button
+                    type="submit"
+                    class="signin-btn"
+                >
+                    Sign In&nbsp; →
+                </button>
+
+
+            </form>
+
+
+            <div class="divider">
+                OR
+            </div>
+
+
+            <p class="signup">
+
+                Don't have an account?
+
+                <a href="register.html">
+                    Create one
+                </a>
+
+            </p>
+
+
+            <div class="secure">
+                ✦ A calm space starts at home.
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+
+/* ================= LOGIN ================= */
+
+document
+    .getElementById("loginForm")
+    .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+
+        const email =
+            document
+            .getElementById("email")
+            .value
+            .trim();
+
+
+        const password =
+            document
+            .getElementById("password")
+            .value;
+
+
+        if (!email || !password) {
+
+            alert("Please enter your email and password.");
+
+            return;
+
+        }
+
+
+        const user = {
+
+            email: email
+
+        };
+
+
+        localStorage.setItem(
+            "casaUser",
+            JSON.stringify(user)
+        );
+
+
+        window.location.href =
+            "index.html";
+
+    });
+
+
+
+/* ================= SHOW PASSWORD ================= */
+
+function togglePassword() {
+
+    const password =
+        document.getElementById("password");
+
+
+    const button =
+        document.querySelector(".show-password");
+
+
+    if (password.type === "password") {
+
+        password.type = "text";
+
+        button.textContent = "Hide";
+
+    } else {
+
+        password.type = "password";
+
+        button.textContent = "Show";
+
+    }
+
+}
+
+</script>
+
+
+</body>
+
+</html>

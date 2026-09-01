@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Product Details | CasaVibe</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        .product-details-page {
+            padding: 120px 7% 80px;
+            min-height: 80vh;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 35px;
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .details-container {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 70px;
+            max-width: 1200px;
+            margin: auto;
+            align-items: start;
+        }
+
+        .details-image {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .details-category {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 12px;
+            color: #888;
+        }
+
+        .details-info h1 {
+            font-family: "Playfair Display", serif;
+            font-size: 52px;
+            line-height: 1.1;
+            margin: 15px 0;
+        }
+
+        .details-price {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 20px 0;
+        }
+
+        .details-description {
+            color: #666;
+            line-height: 1.8;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .rating {
+            margin-top: 15px;
+            font-size: 15px;
+        }
+
+        .features {
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            padding: 25px 0;
+            margin-bottom: 30px;
+        }
+
+        .features h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 24px;
+            margin-bottom: 18px;
+        }
+
+        .features ul {
+            padding-left: 20px;
+            line-height: 2;
+            color: #555;
+        }
+
+        .details-button {
+            border: none;
+            background: #222;
+            color: white;
+            padding: 16px 35px;
+            cursor: pointer;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .details-button:hover {
+            opacity: 0.8;
+        }
+
+        @media (max-width: 800px) {
+
+            .details-container {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .details-image {
+                height: 420px;
+            }
+
+            .details-info h1 {
+                font-size: 38px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header class="header">
+
+    <a href="index.html" class="logo">
+        Casa<span>Vibe</span>
+    </a>
+
+    <nav class="navbar">
+
+        <a href="index.html">Home</a>
+
+        <a href="products.html" class="active">
+            Shop
+        </a>
+
+        <a href="index.html#collections">
+            Collections
+        </a>
+
+        <a href="index.html#about">
+            About
+        </a>
+
+    </nav>
+
+    <div class="header-actions">
+
+        <a href="cart.html" class="cart-btn">
+            🛒 <span id="cart-count">0</span>
+        </a>
+
+    </div>
+
+</header>
+
+
+<main class="product-details-page">
+
+    <a href="products.html" class="back-link">
+        ← Back to Shop
+    </a>
+
+
+    <div class="details-container">
+
+
+        <div>
+
+            <img
+                id="product-image"
+                class="details-image"
+                src=""
+                alt=""
+            >
+
+        </div>
+
+
+        <div class="details-info">
+
+            <span
+                id="product-category"
+                class="details-category">
+            </span>
+
+            <h1 id="product-name"></h1>
+
+            <div class="rating">
+                ⭐⭐⭐⭐⭐ &nbsp; 4.9 / 5
+            </div>
+
+            <div
+                id="product-price"
+                class="details-price">
+            </div>
+
+            <p
+                id="product-description"
+                class="details-description">
+            </p>
+
+
+            <div class="features">
+
+                <h3>
+                    Why you'll love it
+                </h3>
+
+                <ul id="product-features">
+                </ul>
+
+            </div>
+
+
+            <button
+                id="add-product"
+                class="details-button">
+
+                Add to Cart +
+
+            </button>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<footer class="footer">
+
+    <div>
+
+        <a href="index.html" class="logo">
+            Casa<span>Vibe</span>
+        </a>
+
+        <p>
+            Furniture for beautiful everyday living.
+        </p>
+
+    </div>
+
+    <p class="copyright">
+        © 2026 CasaVibe. All rights reserved.
+    </p>
+
+</footer>
+
+
+<script>
+
+const products = {
+
+    1: {
+        name: "Cloud Beige Sofa",
+        category: "Living Room",
+        price: "₪1,899",
+        image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1200&q=90",
+        description: "A soft and elegant sofa designed for comfortable everyday living. Its neutral beige color makes it perfect for modern interiors.",
+        features: [
+            "Premium soft-touch fabric",
+            "High-density comfortable cushions",
+            "Strong wooden frame",
+            "Modern minimalist design",
+            "Easy to style with different interiors"
+        ]
+    },
+
+    2: {
+        name: "Nordic Bed Frame",
+        category: "Bedroom",
+        price: "₪1,450",
+        image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=90",
+        description: "A clean Nordic-inspired bed frame that brings warmth and simplicity to your bedroom.",
+        features: [
+            "Strong wooden structure",
+            "Minimal Nordic design",
+            "Comfortable height",
+            "Durable finish",
+            "Easy to match with bedroom decor"
+        ]
+    },
+
+    3: {
+        name: "Modern Lounge Chair",
+        category: "Decor",
+        price: "₪499",
+        image: "https://images.unsplash.com/photo-1532372320572-cda25653a26d?auto=format&fit=crop&w=1200&q=90",
+        description: "A stylish accent chair designed to add personality and comfort to your living space.",
+        features: [
+            "Comfortable seating",
+            "Modern silhouette",
+            "Premium upholstery",
+            "Compact design",
+            "Perfect accent piece"
+        ]
+    },
+
+    4: {
+        name: "Oak Dining Table",
+        category: "Dining",
+        price: "₪1,250",
+        image: "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?auto=format&fit=crop&w=1200&q=90",
+        description: "A timeless oak dining table made for family meals, gatherings and beautiful everyday moments.",
+        features: [
+            "Oak-inspired finish",
+            "Spacious tabletop",
+            "Stable construction",
+            "Timeless design",
+            "Easy to clean"
+        ]
+    },
+
+    5: {
+        name: "Soft Linen Armchair",
+        category: "Living Room",
+        price: "₪680",
+        image: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format&fit=crop&w=1200&q=90",
+        description: "A cozy linen armchair that combines soft comfort with a sophisticated modern look.",
+        features: [
+            "Soft linen-style fabric",
+            "Comfortable back support",
+            "Elegant neutral color",
+            "Strong frame",
+            "Perfect for reading corners"
+        ]
+    },
+
+    6: {
+        name: "Modern Lounge Set",
+        category: "Living Room",
+        price: "₪2,450",
+        image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1200&q=90",
+        description: "A complete modern lounge setup designed to create a stylish and welcoming living room.",
+        features: [
+            "Modern coordinated design",
+            "Comfortable seating",
+            "Premium materials",
+            "Neutral aesthetic",
+            "Ideal for large living rooms"
+        ]
+    },
+
+    7: {
+        name: "Classic Accent Chair",
+        category: "Decor",
+        price: "₪540",
+        image: "https://images.unsplash.com/photo-1549497538-303791108f95?auto=format&fit=crop&w=1200&q=90",
+        description: "A classic accent chair that adds character and elegance to your home.",
+        features: [
+            "Classic design",
+            "Comfortable seat",
+            "Decorative statement piece",
+            "Durable construction",
+            "Works with many interiors"
+        ]
+    },
+
+    8: {
+        name: "Ivory Modular Sofa",
+        category: "Living Room",
+        price: "₪2,150",
+        image: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=1200&q=90",
+        description: "A spacious ivory sofa with a clean modular look for relaxed and modern living.",
+        features: [
+            "Soft ivory upholstery",
+            "Spacious seating",
+            "Modular-inspired design",
+            "Comfortable cushions",
+            "Modern luxury appearance"
+        ]
+    },
+
+    9: {
+        name: "Cream Boucle Sofa",
+        category: "Living Room",
+        price: "₪2,199",
+        image: "https://images.unsplash.com/photo-1550226891-ef816aed4a98?auto=format&fit=crop&w=1200&q=90",
+        description: "A luxurious cream sofa featuring a soft textured look and a warm contemporary style.",
+        features: [
+            "Soft textured upholstery",
+            "Deep comfortable seating",
+            "Elegant cream color",
+            "Modern rounded shape",
+            "Premium appearance"
+        ]
+    },
+
+    10: {
+        name: "Wooden Dining Chairs",
+        category: "Dining",
+        price: "₪760",
+        image: "https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=1200&q=90",
+        description: "Beautiful wooden dining chairs designed to create a warm and welcoming dining space.",
+        features: [
+            "Solid wooden look",
+            "Comfortable seating",
+            "Classic design",
+            "Durable construction",
+            "Easy to combine with dining tables"
+        ]
+    },
+
+    11: {
+        name: "Minimal Work Desk",
+        category: "Office",
+        price: "₪890",
+        image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1200&q=90",
+        description: "A clean and practical desk designed for productive work and study sessions.",
+        features: [
+            "Spacious work surface",
+            "Minimal design",
+            "Strong construction",
+            "Easy to organize",
+            "Perfect for home offices"
+        ]
+    },
+
+    12: {
+        name: "Soft Linen Bed",
+        category: "Bedroom",
+        price: "₪1,780",
+        image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=90",
+        description: "A calm and elegant bedroom centerpiece designed around comfort and simplicity.",
+        features: [
+            "Soft neutral upholstery",
+            "Comfortable design",
+            "Strong frame",
+            "Elegant bedroom style",
+            "Easy to decorate"
+        ]
+    },
+
+    13: {
+        name: "Round Coffee Table",
+        category: "Living Room",
+        price: "₪620",
+        image: "https://images.unsplash.com/photo-1551298370-9d3d53740c72?auto=format&fit=crop&w=1200&q=90",
+        description: "A modern round coffee table that adds a simple and elegant touch to your living room.",
+        features: [
+            "Round modern shape",
+            "Stable construction",
+            "Compact footprint",
+            "Easy to clean",
+            "Perfect centerpiece"
+        ]
+    },
+
+    14: {
+        name: "Oak Bookshelf",
+        category: "Office",
+        price: "₪980",
+        image: "https://images.unsplash.com/photo-1594620302200-9a762244a156?auto=format&fit=crop&w=1200&q=90",
+        description: "A practical oak-style bookshelf for displaying books, decor and everyday essentials.",
+        features: [
+            "Multiple storage spaces",
+            "Oak-style finish",
+            "Modern design",
+            "Strong shelves",
+            "Perfect for office or living room"
+        ]
+    },
+
+    15: {
+        name: "Modern Side Table",
+        category: "Decor",
+        price: "₪390",
+        image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1200&q=90",
+        description: "A small modern side table designed to add function and style to your favorite corner.",
+        features: [
+            "Compact size",
+            "Modern appearance",
+            "Easy to move",
+            "Useful everyday surface",
+            "Minimal design"
+        ]
+    },
+
+    16: {
+        name: "Luxury Living Set",
+        category: "Living Room",
+        price: "₪2,890",
+        image: "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1200&q=90",
+        description: "A luxurious living room set created for spacious, elegant and comfortable interiors.",
+        features: [
+            "Luxury contemporary design",
+            "Comfortable seating",
+            "Premium appearance",
+            "Elegant neutral palette",
+            "Ideal for modern homes"
+        ]
+    }
+
+};
+
+
+const params = new URLSearchParams(window.location.search);
+
+const productId = params.get("product") || "1";
+
+const product = products[productId];
+
+
+if (product) {
+
+    document.getElementById("product-image").src = product.image;
+
+    document.getElementById("product-image").alt = product.name;
+
+    document.getElementById("product-category").textContent = product.category;
+
+    document.getElementById("product-name").textContent = product.name;
+
+    document.getElementById("product-price").textContent = product.price;
+
+    document.getElementById("product-description").textContent = product.description;
+
+
+    const featureList = document.getElementById("product-features");
+
+    featureList.innerHTML = "";
+
+    product.features.forEach(function(feature) {
+
+        const li = document.createElement("li");
+
+        li.textContent = feature;
+
+        featureList.appendChild(li);
+
+    });
+
+}
+
+
+document.getElementById("add-product").addEventListener("click", function() {
+
+    addToCart(
+        product.name,
+        parseInt(product.price.replace("₪", "").replace(",", "")),
+        product.image
+    );
+
+});
+
+
+</script>
+
+
+</body>
+
+</html>

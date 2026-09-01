@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Wishlist | CasaVibe</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<header class="header">
+
+    <a href="index.html" class="logo">
+        Casa<span>Vibe</span>
+    </a>
+
+    <nav class="navbar">
+
+        <a href="index.html">Home</a>
+
+        <a href="products.html">Shop</a>
+
+        <a href="wishlist.html" class="active">
+            Wishlist
+        </a>
+
+        <a href="cart.html">
+            Cart
+        </a>
+
+    </nav>
+
+</header>
+
+
+<main class="wishlist-page">
+
+    <div class="wishlist-title">
+
+        <p class="small-title">
+            YOUR FAVORITES
+        </p>
+
+        <h1>
+            Wishlist
+        </h1>
+
+        <p>
+            Pieces you've saved for later.
+        </p>
+
+    </div>
+
+
+    <div
+        id="wishlist-grid"
+        class="shop-grid">
+    </div>
+
+</main>
+
+
+<script src="../js/script.js"></script>
+
+
+<script>
+
+function renderWishlist() {
+
+    const grid =
+        document.querySelector("#wishlist-grid");
+
+    const wishlist =
+        JSON.parse(
+            localStorage.getItem("casaWishlist")
+        ) || [];
+
+
+    if (!wishlist.length) {
+
+        grid.innerHTML = `
+
+            <div class="empty-wishlist">
+
+                <div>
+                    ♡
+                </div>
+
+                <h2>
+                    Your wishlist is empty.
+                </h2>
+
+                <p>
+                    Save pieces you love and find them here later.
+                </p>
+
+                <a href="products.html">
+                    Explore Products →
+                </a>
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    wishlist.forEach((item, index) => {
+
+        grid.innerHTML += `
+
+            <article class="shop-product">
+
+                <div class="shop-product-image">
+
+                    <button
+                        class="heart-btn wishlist-remove"
+                        onclick="removeWishlist(${index})">
+                        ♥
+                    </button>
+
+                    <img
+                        src="${item.image}"
+                        alt="${item.name}"
+                    >
+
+                </div>
+
+                <div class="shop-product-info">
+
+                    <span>
+                        Saved Item
+                    </span>
+
+                    <h2>
+                        ${item.name}
+                    </h2>
+
+                    <div>
+
+                        <strong>
+                            ₪${item.price}
+                        </strong>
+
+                        <button
+                            class="add-btn"
+                            onclick="addWishlistToCart(${index})">
+                            Add to cart +
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        `;
+
+    });
+
+}
+
+
+function removeWishlist(index) {
+
+    let wishlist =
+        JSON.parse(
+            localStorage.getItem("casaWishlist")
+        ) || [];
+
+    wishlist.splice(index, 1);
+
+    localStorage.setItem(
+        "casaWishlist",
+        JSON.stringify(wishlist)
+    );
+
+    renderWishlist();
+
+}
+
+
+function addWishlistToCart(index) {
+
+    const wishlist =
+        JSON.parse(
+            localStorage.getItem("casaWishlist")
+        ) || [];
+
+    const item = wishlist[index];
+
+    addToCart(
+        item.name,
+        item.price,
+        item.image
+    );
+
+}
+
+
+renderWishlist();
+
+</script>
+
+</body>
+</html>

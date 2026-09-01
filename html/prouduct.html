@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cloud Beige Sofa | CasaVibe</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<header class="header">
+
+    <a href="index.html" class="logo">
+        Casa<span>Vibe</span>
+    </a>
+
+    <nav class="navbar">
+
+        <a href="index.html">Home</a>
+
+        <a href="products.html">Shop</a>
+
+        <a href="index.html#collections">Collections</a>
+
+        <a href="index.html#about">About</a>
+
+    </nav>
+
+    <div class="header-actions">
+
+        <button class="icon-btn">⌕</button>
+
+        <button class="icon-btn">♡</button>
+
+        <a href="cart.html" class="cart-btn">
+            🛒 <span id="cart-count">0</span>
+        </a>
+
+    </div>
+
+</header>
+
+
+<main>
+
+<section class="product-details">
+
+
+    <div class="product-gallery">
+
+        <img
+            src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1000&q=85"
+            alt="Cloud Beige Sofa"
+        >
+
+        <img
+            src="https://images.unsplash.com/photo-1550226891-ef816aed4a98?auto=format&fit=crop&w=1000&q=85"
+            alt="Sofa interior"
+        >
+
+        <img
+            src="https://images.unsplash.com/photo-1540574163026-643ea20ade25?auto=format&fit=crop&w=1000&q=85"
+            alt="Modern sofa"
+        >
+
+        <img
+            src="https://images.unsplash.com/photo-1550254478-ead40cc54513?auto=format&fit=crop&w=1000&q=85"
+            alt="Living room sofa"
+        >
+
+    </div>
+
+
+    <div class="product-info-page">
+
+        <span class="category">
+            Living Room
+        </span>
+
+        <h1>
+            Cloud Beige Sofa
+        </h1>
+
+        <div class="product-price">
+            ₪1,899
+        </div>
+
+        <p class="product-description">
+
+            A soft, modern sofa designed for relaxed
+            everyday living. Its warm beige tone and
+            clean silhouette make it easy to style
+            with any interior.
+
+        </p>
+
+
+        <div class="product-option">
+
+            <label>COLOR</label>
+
+            <div class="option-buttons">
+
+                <button class="active">
+                    Beige
+                </button>
+
+                <button>
+                    Cream
+                </button>
+
+                <button>
+                    Grey
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="product-option">
+
+            <label>QUANTITY</label>
+
+            <div class="quantity">
+
+                <button onclick="changeQuantity(-1)">
+                    −
+                </button>
+
+                <span id="quantity">
+                    1
+                </span>
+
+                <button onclick="changeQuantity(1)">
+                    +
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="add-large"
+            onclick="addProductToCart()">
+
+            Add to Cart — ₪1,899
+
+        </button>
+
+
+        <div style="margin-top:30px;color:#777;font-size:13px;line-height:1.8;">
+
+            ✓ Free delivery<br>
+            ✓ Secure checkout<br>
+            ✓ 14-day returns
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<footer class="footer">
+
+    <div>
+
+        <a href="index.html" class="logo">
+            Casa<span>Vibe</span>
+        </a>
+
+        <p>
+            Furniture for beautiful everyday living.
+        </p>
+
+    </div>
+
+    <div class="footer-links">
+
+        <a href="products.html">Shop</a>
+
+        <a href="index.html#collections">Collections</a>
+
+        <a href="index.html#about">About</a>
+
+        <a href="cart.html">Cart</a>
+
+    </div>
+
+    <p class="copyright">
+        © 2026 CasaVibe. All rights reserved.
+    </p>
+
+</footer>
+
+
+<script src="../js/script.js"></script>
+
+
+<script>
+
+let productQuantity = 1;
+
+
+function changeQuantity(amount) {
+
+    productQuantity += amount;
+
+    if (productQuantity < 1) {
+        productQuantity = 1;
+    }
+
+    document.querySelector("#quantity").textContent =
+        productQuantity;
+
+}
+
+
+function addProductToCart() {
+
+    for (let i = 0; i < productQuantity; i++) {
+
+        addToCart(
+            "Cloud Beige Sofa",
+            1899,
+            "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1000&q=85"
+        );
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>

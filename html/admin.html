@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard | CasaVibe</title>
+
+    <link rel="stylesheet" href="../CSS/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<header class="admin-header">
+
+    <a href="index.html" class="logo">
+        Casa<span>Vibe</span>
+    </a>
+
+    <div>
+
+        <span class="admin-label">
+            ADMIN DASHBOARD
+        </span>
+
+        <a href="index.html" class="admin-home">
+            View Store →
+        </a>
+
+    </div>
+
+</header>
+
+
+<main class="admin-page">
+
+    <section class="admin-intro">
+
+        <div>
+
+            <p class="small-title">
+                CASAVIBE MANAGEMENT
+            </p>
+
+            <h1>
+                Dashboard
+            </h1>
+
+        </div>
+
+        <button
+            class="admin-add"
+            onclick="openProductForm()">
+
+            + Add Product
+
+        </button>
+
+    </section>
+
+
+    <!-- STATISTICS -->
+
+    <section class="admin-stats">
+
+        <div class="admin-stat">
+
+            <span>PRODUCTS</span>
+
+            <strong id="product-count">
+                8
+            </strong>
+
+        </div>
+
+        <div class="admin-stat">
+
+            <span>ORDERS</span>
+
+            <strong id="order-count">
+                0
+            </strong>
+
+        </div>
+
+        <div class="admin-stat">
+
+            <span>REVENUE</span>
+
+            <strong id="revenue">
+                ₪0
+            </strong>
+
+        </div>
+
+        <div class="admin-stat">
+
+            <span>WISHLIST</span>
+
+            <strong id="wishlist-count">
+                0
+            </strong>
+
+        </div>
+
+    </section>
+
+
+    <!-- PRODUCT FORM -->
+
+    <section
+        id="product-form"
+        class="admin-form"
+        style="display:none;">
+
+        <div class="admin-form-head">
+
+            <h2>
+                Add New Product
+            </h2>
+
+            <button onclick="closeProductForm()">
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="admin-form-grid">
+
+            <input
+                id="admin-name"
+                type="text"
+                placeholder="Product name"
+            >
+
+            <input
+                id="admin-price"
+                type="number"
+                placeholder="Price"
+            >
+
+            <input
+                id="admin-category"
+                type="text"
+                placeholder="Category"
+            >
+
+            <input
+                id="admin-image"
+                type="text"
+                placeholder="Image URL"
+            >
+
+        </div>
+
+
+        <button
+            class="admin-save"
+            onclick="addAdminProduct()">
+
+            Save Product
+
+        </button>
+
+    </section>
+
+
+    <!-- PRODUCTS -->
+
+    <section class="admin-products">
+
+        <div class="admin-section-title">
+
+            <h2>
+                Products
+            </h2>
+
+            <span id="admin-product-total">
+                8 products
+            </span>
+
+        </div>
+
+
+        <div
+            id="admin-product-list"
+            class="admin-product-list">
+        </div>
+
+    </section>
+
+
+    <!-- ORDERS -->
+
+    <section class="admin-orders">
+
+        <div class="admin-section-title">
+
+            <h2>
+                Recent Orders
+            </h2>
+
+        </div>
+
+
+        <div id="admin-orders-list">
+
+            <div class="no-orders">
+
+                <span>◎</span>
+
+                <h3>
+                    No orders yet
+                </h3>
+
+                <p>
+                    Customer orders will appear here.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script src="../JS/script.js"></script>
+
+
+<script>
+
+/* ================= ADMIN PRODUCTS ================= */
+
+let adminProducts =
+    JSON.parse(localStorage.getItem("casaProducts")) || [
+
+        {
+            name: "Cloud Beige Sofa",
+            price: 1899,
+            category: "Living Room",
+            image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=85"
+        },
+
+        {
+            name: "Nordic Bed Frame",
+            price: 1450,
+            category: "Bedroom",
+            image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=85"
+        },
+
+        {
+            name: "Modern Lounge Chair",
+            price: 499,
+            category: "Furniture",
+            image: "https://images.unsplash.com/photo-1532372320572-cda25653a26d?auto=format&fit=crop&w=900&q=85"
+        },
+
+        {
+            name: "Oak Dining Table",
+            price: 1250,
+            category: "Dining",
+            image: "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?auto=format&fit=crop&w=900&q=85"
+        },
+
+        {
+            name: "Soft Linen Armchair",
+            price: 680,
+            category: "Living Room",
+            image: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format&fit=crop&w=900&q=85"
+        },
+
+        {
+            name: "Modern Lounge Set",
+            price: 2450,
+            category: "Living Room",
+            image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=900&q=85"
+        },
+
+        {
+            name: "Classic Accent Chair",
+            price: 540,
+            category: "Decor",
+            image: "https://images.unsplash.com/photo-1549497538-303791108f95?auto=format&fit=crop&w=900&q=85"
+        },
+
+        {
+            name: "Ivory Modular Sofa",
+            price: 2150,
+            category: "Living Room",
+            image: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=900&q=85"
+        }
+
+    ];
+
+
+function saveProducts() {
+
+    localStorage.setItem(
+        "casaProducts",
+        JSON.stringify(adminProducts)
+    );
+
+}
+
+
+function renderAdminProducts() {
+
+    const container =
+        document.querySelector("#admin-product-list");
+
+    container.innerHTML = "";
+
+
+    adminProducts.forEach((product, index) => {
+
+        container.innerHTML += `
+
+            <div class="admin-product">
+
+                <img
+                    src="${product.image}"
+                    alt="${product.name}"
+                >
+
+                <div class="admin-product-info">
+
+                    <span>
+                        ${product.category}
+                    </span>
+
+                    <h3>
+                        ${product.name}
+                    </h3>
+
+                    <strong>
+                        ₪${product.price}
+                    </strong>
+
+                </div>
+
+                <button
+                    class="delete-product"
+                    onclick="deleteAdminProduct(${index})">
+
+                    Delete
+
+                </button>
+
+            </div>
+
+        `;
+
+    });
+
+
+    document.querySelector("#product-count")
+        .textContent = adminProducts.length;
+
+    document.querySelector("#admin-product-total")
+        .textContent =
+        `${adminProducts.length} products`;
+
+}
+
+
+function openProductForm() {
+
+    document.querySelector("#product-form").style.display =
+        "block";
+
+}
+
+
+function closeProductForm() {
+
+    document.querySelector("#product-form").style.display =
+        "none";
+
+}
+
+
+function addAdminProduct() {
+
+    const name =
+        document.querySelector("#admin-name").value.trim();
+
+    const price =
+        Number(document.querySelector("#admin-price").value);
+
+    const category =
+        document.querySelector("#admin-category").value.trim();
+
+    const image =
+        document.querySelector("#admin-image").value.trim();
+
+
+    if (!name || !price || !category || !image) {
+
+        alert("Please fill all fields.");
+
+        return;
+
+    }
+
+
+    adminProducts.push({
+
+        name: name,
+        price: price,
+        category: category,
+        image: image
+
+    });
+
+
+    saveProducts();
+
+    renderAdminProducts();
+
+    closeProductForm();
+
+
+    document.querySelector("#admin-name").value = "";
+    document.querySelector("#admin-price").value = "";
+    document.querySelector("#admin-category").value = "";
+    document.querySelector("#admin-image").value = "";
+
+
+    showToast("Product added successfully ✓");
+
+}
+
+
+function deleteAdminProduct(index) {
+
+    const product =
+        adminProducts[index];
+
+    const confirmed =
+        confirm(`Delete ${product.name}?`);
+
+
+    if (!confirmed) return;
+
+
+    adminProducts.splice(index, 1);
+
+    saveProducts();
+
+    renderAdminProducts();
+
+    showToast("Product deleted");
+
+}
+
+
+/* ================= ORDERS ================= */
+
+function loadAdminOrders() {
+
+    const orders =
+        JSON.parse(localStorage.getItem("casaOrders")) || [];
+
+    const container =
+        document.querySelector("#admin-orders-list");
+
+
+    document.querySelector("#order-count")
+        .textContent = orders.length;
+
+
+    if (!orders.length) return;
+
+
+    container.innerHTML = "";
+
+
+    let revenue = 0;
+
+
+    orders.forEach((order, index) => {
+
+        const total =
+            order.items.reduce(
+                (sum, item) =>
+                    sum + item.price * item.quantity,
+                0
+            );
+
+
+        revenue += total;
+
+
+        container.innerHTML += `
+
+            <div class="admin-order">
+
+                <div>
+
+                    <strong>
+                        Order #${index + 1}
+                    </strong>
+
+                    <p>
+                        ${order.customer}
+                    </p>
+
+                    <small>
+                        ${order.email}
+                    </small>
+
+                </div>
+
+                <div>
+
+                    <strong>
+                        ₪${total}
+                    </strong>
+
+                    <p>
+                        ${order.date}
+                    </p>
+
+                </div>
+
+            </div>
+
+        `;
+
+    });
+
+
+    document.querySelector("#revenue")
+        .textContent = `₪${revenue}`;
+
+}
+
+
+/* ================= WISHLIST ================= */
+
+function loadWishlistCount() {
+
+    const wishlist =
+        JSON.parse(localStorage.getItem("casaWishlist")) || [];
+
+    document.querySelector("#wishlist-count")
+        .textContent = wishlist.length;
+
+}
+
+
+renderAdminProducts();
+loadAdminOrders();
+loadWishlistCount();
+
+</script>
+
+</body>
+</html>

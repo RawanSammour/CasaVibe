@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Checkout | CasaVibe</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap">
+
+</head>
+
+<body>
+
+<header class="header">
+
+    <a href="index.html" class="logo">
+        Casa<span>Vibe</span>
+    </a>
+
+    <a href="cart.html" class="cart-btn">
+        ← Back to Cart
+    </a>
+
+</header>
+
+
+<main class="checkout-page">
+
+    <div class="checkout-content">
+
+        <p class="small-title">
+            CASAVIBE CHECKOUT
+        </p>
+
+        <h1>
+            Complete<br>
+            your order.
+        </h1>
+
+
+        <form onsubmit="placeOrder(event)">
+
+            <h2>Contact Information</h2>
+
+            <input
+                id="checkout-name"
+                type="text"
+                placeholder="Full name"
+                required
+            >
+
+            <input
+                id="checkout-email"
+                type="email"
+                placeholder="Email address"
+                required
+            >
+
+
+            <h2>Delivery Address</h2>
+
+            <input
+                id="checkout-address"
+                type="text"
+                placeholder="Street address"
+                required
+            >
+
+            <div class="checkout-row">
+
+                <input
+                    type="text"
+                    placeholder="City"
+                    required
+                >
+
+                <input
+                    type="text"
+                    placeholder="Postal code"
+                    required
+                >
+
+            </div>
+
+
+            <h2>Payment</h2>
+
+            <div class="payment-box">
+
+                <label>
+                    <input type="radio" name="payment" checked>
+                    Cash on Delivery
+                </label>
+
+                <label>
+                    <input type="radio" name="payment">
+                    Card Payment
+                </label>
+
+            </div>
+
+
+            <button class="checkout-submit">
+                Place Order →
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <aside class="checkout-summary">
+
+        <h2>Your Order</h2>
+
+        <div id="checkout-items"></div>
+
+        <div class="summary-row summary-total">
+
+            <span>Total</span>
+
+            <strong id="checkout-total">
+                ₪0
+            </strong>
+
+        </div>
+
+    </aside>
+
+</main>
+
+
+<script src="../js/script.js"></script>
+
+<script>
+
+function loadCheckout() {
+
+    const container =
+        document.querySelector("#checkout-items");
+
+    const total =
+        document.querySelector("#checkout-total");
+
+    if (!cart.length) {
+
+        container.innerHTML =
+            "<p>Your cart is empty.</p>";
+
+        return;
+    }
+
+
+    let totalPrice = 0;
+
+    container.innerHTML = "";
+
+    cart.forEach(item => {
+
+        totalPrice += item.price * item.quantity;
+
+        container.innerHTML += `
+
+            <div class="checkout-item">
+
+                <img
+                    src="${item.image}"
+                    alt="${item.name}"
+                >
+
+                <div>
+
+                    <strong>
+                        ${item.name}
+                    </strong>
+
+                    <p>
+                        × ${item.quantity}
+                    </p>
+
+                </div>
+
+                <span>
+                    ₪${item.price * item.quantity}
+                </span>
+
+            </div>
+
+        `;
+
+    });
+
+    total.textContent =
+        `₪${totalPrice}`;
+}
+
+
+function placeOrder(event) {
+
+    event.preventDefault();
+
+    const order = {
+
+        customer:
+            document.querySelector("#checkout-name").value,
+
+        email:
+            document.querySelector("#checkout-email").value,
+
+        address:
+            document.querySelector("#checkout-address").value,
+
+        items: cart,
+
+        date:
+            new Date().toLocaleString()
+
+    };
+
+
+    let orders =
+    JSON.parse(localStorage.getItem("casaOrders")) || [];
+
+orders.push(order);
+
+localStorage.setItem(
+    "casaOrders",
+    JSON.stringify(orders)
+);
+
+
+    localStorage.removeItem("casaCart");
+
+    cart = [];
+
+    showToast("Order placed successfully ✓");
+
+    setTimeout(() => {
+
+        window.location.href = "index.html";
+
+    }, 1500);
+
+}
+
+
+loadCheckout();
+
+</script>
+
+</body>
+</html>

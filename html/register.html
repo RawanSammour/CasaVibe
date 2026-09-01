@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Account | CasaVibe</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="login-body">
+
+<div class="login-page">
+
+    <div class="login-image">
+
+        <img
+            src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85"
+            alt="Modern interior"
+        >
+
+        <div class="login-image-text">
+
+            <h2>
+                Create a home<br>
+                you love coming back to.
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <div class="login-form">
+
+        <a href="index.html" class="logo">
+            Casa<span>Vibe</span>
+        </a>
+
+        <div class="login-content">
+
+            <p class="small-title">
+                JOIN CASAVIBE
+            </p>
+
+            <h1>
+                Create your<br>
+                account.
+            </h1>
+
+            <form onsubmit="registerUser(event)">
+
+                <label>Full Name</label>
+
+                <input
+                    id="register-name"
+                    type="text"
+                    placeholder="Your name"
+                    required
+                >
+
+
+                <label>Email</label>
+
+                <input
+                    id="register-email"
+                    type="email"
+                    placeholder="your@email.com"
+                    required
+                >
+
+
+                <label>Password</label>
+
+                <input
+                    id="register-password"
+                    type="password"
+                    placeholder="Create a password"
+                    minlength="6"
+                    required
+                >
+
+
+                <button type="submit">
+                    Create Account →
+                </button>
+
+            </form>
+
+
+            <p class="signup-text">
+
+                Already have an account?
+
+                <a href="login.html">
+                    Sign in
+                </a>
+
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="../js/script.js"></script>
+
+<script>
+
+function registerUser(event) {
+
+    event.preventDefault();
+
+    const name =
+        document.querySelector("#register-name").value;
+
+    const email =
+        document.querySelector("#register-email").value;
+
+    localStorage.setItem(
+        "casaUser",
+        JSON.stringify({
+            name: name,
+            email: email
+        })
+    );
+
+    showToast("Account created successfully ✓");
+
+    setTimeout(() => {
+
+        window.location.href = "index.html";
+
+    }, 1000);
+}
+
+</script>
+
+</body>
+</html>
